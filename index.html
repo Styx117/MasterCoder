@@ -132,8 +132,8 @@
 			<div class="col text-left">
 				<h2 class="text-center">The Task</h2><br>
 				<p>You've been given an array in the text editor. Your task is to make a function that counts how many times each word occurs in that array. You may <b>not</b> edit that array and to submit your answer, use the <code>Console.log()</code> command and the output will appear in the result section.</p>
-				<p class="text-center"><b>The desired output is:</b> <code>{cat:2,dog:1,cow:3}</code></p>
-				<p class="text-center">Yes I am aware you could just do <code>console.log("{cat:2,dog:1,cow:3}");</code> I'm just too lazy to fix that.</p>
+				<p class="text-center"><b>The desired output is this object:</b> <code>{cat:2,dog:1,cow:3}</code></p>
+				<p class="text-center">Yes, I am aware you could just do <code>console.log("{cat:2,dog:1,cow:3}");</code>. But where's the fun in that?</p>
 			</div>
 		</div>
 
@@ -171,32 +171,42 @@
 			styleActiveLine: true,
 			matchBrackets: true,
 			theme: "material",
-			mode: "javascript"
+			mode: "javascript",
 		});
+		editor.setSize(550, 300);
 
 		$(".runCode").off("click").on("click",function(){
-			var lines = editor.getValue().split('\n');
-			var full = "";
-			for(var i = 0;i < lines.length;i++){
-				if (lines[i].includes("console.log")){
-					lines[i] = lines[i].replace("console.log","$('.execCode').append(JSON.stringify");
-
-					indexpos = lines[i].lastIndexOf(")");
-					lines[i] = lines[i].slice(0, indexpos) + ")" + lines[i].slice(indexpos);
-
-					full += lines[i] + "\n";
-				}
-				else{
-					full += lines[i] + "\n";
-				}
+			if (editor.getValue().includes(`{cat:2,dog:1,cow:3}`) || editor.getValue().includes("cat:") || editor.getValue().includes("dog:") || editor.getValue().includes("cow:")){
+				alert("Nice try")
 			}
-			$('.execCode').html("");
-			// cowd = editor.getValue().replace("console.log","$('.execCode').append(JSON.stringify");
-			$(".scriptHolder").html(`<script>`+full+`<\/script>`);
-			$(".execCode").html($(".execCode").html().replace(/['"]+/g, ''));
-			
-			if ($(".execCode").html() == `{cat:2,dog:1,cow:3}`){
-				alert("Success! Share your code in the server")
+			else{
+
+
+				var lines = editor.getValue().split('\n');
+				var full = "";
+				for(var i = 0;i < lines.length;i++){
+					if (lines[i].includes("console.log")){
+						lines[i] = lines[i].replace("console.log","$('.execCode').append(JSON.stringify");
+
+						indexpos = lines[i].lastIndexOf(")");
+						lines[i] = lines[i].slice(0, indexpos) + ")" + lines[i].slice(indexpos);
+
+						full += lines[i] + "\n";
+					}
+					else{
+						full += lines[i] + "\n";
+					}
+				}
+
+				$('.execCode').html("");
+				cowd = full.replace("const","var");
+				$(".scriptHolder").html(`<script>`+cowd+`<\/script>`);
+				$(".execCode").html($(".execCode").html().replace(/['"]+/g, ''));
+
+				if ($(".execCode").html() == `{cat:2,dog:1,cow:3}`){
+					alert("Success! Share your code in the server")
+					$(".scriptHolder").html();
+				}
 			}
 		});
 	</script>
