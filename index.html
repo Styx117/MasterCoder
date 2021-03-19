@@ -136,20 +136,24 @@
 				<p class="text-center">Yes, I am aware you could just do <code>console.log("{cat:2,dog:1,cow:3}");</code>. But where's the fun in that?</p>
 			</div>
 		</div>
-
-		<div class="row text-right">
-			<div class="col">
-				<button class="btn btn-success btn-sm runCode">Run!</button>
+		<button class="stbtn btn btn-success btn-lg mb-3">Start</button>
+		<div class="codeStuff" style="display:none;">
+			
+			<div class="row text-right">
+				<div class="col">
+					<button class="btn btn-success btn-sm runCode">Run!</button>
+					<div id="stopwatch"></div>
+				</div>
+				<div class="col text-left"><h5>Result:</h5></div>
 			</div>
-			<div class="col text-left"><h5>Result:</h5></div>
-		</div>
 
-		<div class="row text-left mb-3">
-			<div class="col">
-				<div id="codeEditorHolder"></div>
-			</div>
-			<div class="col">
-				<div class="execCode"></div>
+			<div class="row text-left mb-3">
+				<div class="col">
+					<div id="codeEditorHolder"></div>
+				</div>
+				<div class="col">
+					<div class="execCode"></div>
+				</div>
 			</div>
 		</div>
 
@@ -163,52 +167,65 @@
 
 	<script src="js/codemirror.js"></script>
 	<script src="js/javascript.js"></script>
+	<script src="js/stopwatch.js"></script>
 
 	<script>
-		var editor = CodeMirror(document.getElementById("codeEditorHolder"), {
-			value: `var arr = ["cat", "dog", "cat", "cow", "cow", "cow"];`,
-			lineNumbers: true,
-			styleActiveLine: true,
-			matchBrackets: true,
-			theme: "material",
-			mode: "javascript",
-		});
-		editor.setSize(550, 300);
 
-		$(".runCode").off("click").on("click",function(){
-			if (editor.getValue().includes(`{cat:2,dog:1,cow:3}`) || editor.getValue().includes("cat:") || editor.getValue().includes("dog:") || editor.getValue().includes("cow:")){
-				alert("Nice try")
-			}
-			else{
+		var timer = new Stopwatch(document.getElementById("stopwatch"));
+		$("a[href='#start'], a[href='#stop'],a[href='#reset']").remove();	
 
+		$(".stbtn").off("click").on("click",function(){
+			$(this).css("display","none");
+			$(".codeStuff").css("display","block");
+			timer.start();
 
-				var lines = editor.getValue().split('\n');
-				var full = "";
-				for(var i = 0;i < lines.length;i++){
-					if (lines[i].includes("console.log")){
-						lines[i] = lines[i].replace("console.log","$('.execCode').append(JSON.stringify");
+			var editor = CodeMirror(document.getElementById("codeEditorHolder"), {
+				value: `var arr = ["cat", "dog", "cat", "cow", "cow", "cow"];`,
+				lineNumbers: true,
+				styleActiveLine: true,
+				matchBrackets: true,
+				theme: "material",
+				mode: "javascript",
+			});
+			editor.setSize(550, 300);
+			editor.on("keyup", () => timer.start());
 
-						indexpos = lines[i].lastIndexOf(")");
-						lines[i] = lines[i].slice(0, indexpos) + ")" + lines[i].slice(indexpos);
+			$(".runCode").off("click").on("click",function(){
+				timer.stop();
+				if (editor.getValue().includes(`{cat:2,dog:1,cow:3}`) || editor.getValue().includes("cat:") || editor.getValue().includes("dog:") || editor.getValue().includes("cow:")){
+					alert("Nice try")
+				}
+				else{
+					var lines = editor.getValue().split('\n');
+					var full = "";
+					for(var i = 0;i < lines.length;i++){
+						if (lines[i].includes("console.log")){
+							lines[i] = lines[i].replace("console.log","$('.execCode').append(JSON.stringify");
 
-						full += lines[i] + "\n";
+							indexpos = lines[i].lastIndexOf(")");
+							lines[i] = lines[i].slice(0, indexpos) + ")" + lines[i].slice(indexpos);
+
+							full += lines[i] + "\n";
+						}
+						else{
+							full += lines[i] + "\n";
+						}
 					}
-					else{
-						full += lines[i] + "\n";
+
+					$('.execCode').html("");
+					cowd = full.replace("const","var");
+					$(".scriptHolder").html(`<script>`+cowd+`<\/script>`);
+					$(".execCode").html($(".execCode").html().replace(/['"]+/g, ''));
+
+					if ($(".execCode").html() == `{cat:2,dog:1,cow:3}`){
+						alert("Success! Share your code in the server : You finished "+$("#stopwatch span").text()+" seconds")
+						$(".scriptHolder").html();
 					}
 				}
-
-				$('.execCode').html("");
-				cowd = full.replace("const","var");
-				$(".scriptHolder").html(`<script>`+cowd+`<\/script>`);
-				$(".execCode").html($(".execCode").html().replace(/['"]+/g, ''));
-
-				if ($(".execCode").html() == `{cat:2,dog:1,cow:3}`){
-					alert("Success! Share your code in the server")
-					$(".scriptHolder").html();
-				}
-			}
+			});
 		});
+
+		
 	</script>
 </body>
 </html>
