@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="css/codemirror.css">
+	<link rel="stylesheet" href="css/material.css">
+	<style>
+		.parallax {
+			/* The image used */
+			background-image: url("https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimg4.wikia.nocookie.net%2F__cb20110630043338%2Fmarvel_dc%2Fimages%2Fe%2Fe4%2FGreenLanternScreen_Parallax.jpg&f=1&nofb=1");
+
+			/* Set a specific height */
+			min-height: 500px; 
+
+			/* Create the parallax scrolling effect */
+			background-attachment: fixed;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			position: relative;
+			color: white;
+			z-index: -2;
+		}
+
+		.layer{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: black;
+			opacity: 0.5;
+			z-index: -1;
+		}
+		.welcome{
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+		}
+		.quoteBlock p:before{
+			font-size: 30px ;
+			content: "“";
+		}
+		.quoteBlock p:after{
+			font-size: 30px ;
+			content: "”";
+		}
+		.quoteBlock{
+			line-height: 1;
+			border-radius: 5px;
+			border:1px solid #cdcdcd;
+			padding: 10px;
+		}
+		.quoteBlock p{
+			text-align: left;
+		}
+		.execCode{
+			border: 1px solid black;
+			height: 100%;
+		}
+		code {
+			background-color: #2f3136;
+			color: #fff;
+			border-radius: 5px;
+			padding: 2px;
+		}
+	</style>
+</head>
+<body>
+	<div class="scriptHolder"></div>
+	
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container">
+			<a class="navbar-brand" href="#">Master &#60;/&#62; Coder</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="#">About</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Credits</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">The <u>Challenge</u></a>
+					</li>
+				</div>
+			</ul>
+		</div>
+	</nav>
+	<div class="parallax text-center"><div class="layer"></div><div class="welcome"><h2>A little inside joke for you DC fans <h6>*nudge*</h6></h2></div></div>
+	<div class="container text-center">
+		<div class="row">
+			<div class="col">
+				<h1 class="mt-4 mb-4">What does 'Master Coder' mean?</h1>
+				<h4>Through <strike>barely any</strike> extensive research, I have deduced that it can mean different things to different people.</h4>
+				<div class="quoteBlock text-right mb-3"><p>I think that 'Master coder' has less to do with knowing the ins and outs of different languages, but being able to problem solve really well (i.e. researching a topic they're unfamiliar with, zeroing in on key aspects of a project when thinking about code architecture etc.)</p> - Gwaine</div>
+				<div class="quoteBlock text-right mb-3"><p>To me a master coder is somebody who has experience in programming and has the attitude of knowing how to create something while learning more.</p> - Ducky</div>
+				<div class="quoteBlock text-right mb-3"><p>I think a master coder is one who is not only proficient in programming but also problem solving in general.</p> - Styx</div>
+			</div>
+		</div>
+		<div class="row text-left">
+			<div class="col">
+				<h4>Let's look at the words 'Master' and 'Coder'...</h4>
+				<h6><u>Master (v.)</u></h6>
+				<p>`Maistren, "to get the better of, prevail against; reduce to subjugation," from master (n.) and also from Old French maistriier, Medieval Latin magistrare. Meaning <b>"acquire complete knowledge of</b>, overcome the difficulties of, learn so as to be able to apply or use" is from 1740s. Related: Mastered; mastering.`</p>
+				<h6><u>Code + er (coming from code) (n.)</u></h6>
+				<p>(There are quite a few definitions so I went with this one) - <b>"Any system or collection of rules and regulations"</b></p>
+				<h4>So...</h4>
+				<h6>Master + Coder = "One who has acquired complete knowledge of any system or collection of rules and regulations" (So...Someone that knows 100% of any programming language?)</h6>
+				<p>Since such a person doesn't exist, the next best definition is basically someone who's good a programming....Are you? Test your skills below (JS)</p>
+			</div>
+		</div>
+		<div class="row text-right">
+			<div class="col">
+				<button class="btn btn-success btn-sm runCode">Run!</button>
+			</div>
+			<div class="col text-left"><h5>Result:</h5></div>
+		</div>
+
+		<div class="row text-left">
+			<div class="col">
+				<div id="codeEditorHolder"></div>
+			</div>
+			<div class="col">
+				<div class="execCode"></div>
+			</div>
+		</div>
+
+		<div class="row text text-center mt-5">
+			<div class="col text-left">
+				<h2 class="text-center">The Task</h2><br>
+				<p>You've been given an array in the text editor. Your task is to make a function that counts how many times each word occurs in that array. You may <b>not</b> edit that array and to submit your answer use the <code>Console.log()</code> command and the output will appear in the result section.</p>
+				<p class="text-center"><b>The desired output is:</b> <code>{cat:2,dog:1,cow:3}</code></p>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/codemirror.js"></script>
+	<script src="js/javascript.js"></script>
+
+	<script>
+		var editor = CodeMirror(document.getElementById("codeEditorHolder"), {
+			value: `var arr = ["cat", "dog", "cat", "cow", "cow", "cow"];`,
+			lineNumbers: true,
+			styleActiveLine: true,
+			matchBrackets: true,
+			theme: "material",
+			mode: "javascript"
+		});
+
+		$(".runCode").off("click").on("click",function(){
+			var lines = editor.getValue().split('\n');
+			var full = "";
+			for(var i = 0;i < lines.length;i++){
+				if (lines[i].includes("console.log")){
+					lines[i] = lines[i].replace("console.log","$('.execCode').append(JSON.stringify");
+
+					indexpos = lines[i].lastIndexOf(")");
+					lines[i] = lines[i].slice(0, indexpos) + ")" + lines[i].slice(indexpos);
+
+					full += lines[i] + "\n";
+				}
+				else{
+					full += lines[i] + "\n";
+				}
+			}
+			$('.execCode').html("");
+			// cowd = editor.getValue().replace("console.log","$('.execCode').append(JSON.stringify");
+			$(".scriptHolder").html(`<script>`+full+`<\/script>`);
+			$(".execCode").html($(".execCode").html().replace(/['"]+/g, ''));
+			
+			if ($(".execCode").html() == `{cat:2,dog:1,cow:3}`){
+				alert("Success! Share your code in the server")
+			}
+		});
+	</script>
+</body>
+</html>
