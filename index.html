@@ -72,6 +72,12 @@
 			border-radius: 5px;
 			padding: 2px;
 		}
+		footer{
+			background-color: #161616;
+			padding: 20px;
+			color: #fff;
+			text-align: center;
+		}
 	</style>
 </head>
 <body>
@@ -87,13 +93,13 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
-						<a class="nav-link" href="#">About</a>
+						<a class="nav-link" href="#about">About</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Credits</a>
+						<a class="nav-link" href="#creds">Credits</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">The <u>Challenge</u></a>
+						<a class="nav-link" href="#challenge">The Challenge</a>
 					</li>
 				</div>
 			</ul>
@@ -102,7 +108,7 @@
 	<div class="parallax text-center"><div class="layer"></div><div class="welcome"><h2>A little inside joke for you DC fans <h6>*nudge*</h6></h2></div></div>
 	<div class="container text-center">
 		<div class="row">
-			<div class="col">
+			<div id="about" class="col">
 				<h1 class="mt-4 mb-4">What does 'Master Coder' mean?</h1>
 				<h4>Through <strike>barely any</strike> extensive research, I have deduced that it can mean different things to different people.</h4>
 				<div class="quoteBlock text-right mb-3"><p>I think that 'Master coder' has less to do with knowing the ins and outs of different languages, but being able to problem solve really well (i.e. researching a topic they're unfamiliar with, zeroing in on key aspects of a project when thinking about code architecture etc.)</p> - Gwaine</div>
@@ -111,7 +117,7 @@
 			</div>
 		</div>
 		<div class="row text-left">
-			<div class="col">
+			<div id="challenge" class="col">
 				<h4>Let's look at the words 'Master' and 'Coder'...</h4>
 				<h6><u>Master (v.)</u></h6>
 				<p>`Maistren, "to get the better of, prevail against; reduce to subjugation," from master (n.) and also from Old French maistriier, Medieval Latin magistrare. Meaning <b>"acquire complete knowledge of</b>, overcome the difficulties of, learn so as to be able to apply or use" is from 1740s. Related: Mastered; mastering.`</p>
@@ -122,6 +128,14 @@
 				<p>Since such a person doesn't exist, the next best definition is basically someone who's good a programming....Are you? Test your skills below (JS)</p>
 			</div>
 		</div>
+		<div class="row text text-center mt-2 mb-3">
+			<div class="col text-left">
+				<h2 class="text-center">The Task</h2><br>
+				<p>You've been given an array in the text editor. Your task is to make a function that counts how many times each word occurs in that array. You may <b>not</b> edit that array and to submit your answer use the <code>Console.log()</code> command and the output will appear in the result section.</p>
+				<p class="text-center"><b>The desired output is:</b> <code>{cat:2,dog:1,cow:3}</code></p>
+			</div>
+		</div>
+
 		<div class="row text-right">
 			<div class="col">
 				<button class="btn btn-success btn-sm runCode">Run!</button>
@@ -129,7 +143,7 @@
 			<div class="col text-left"><h5>Result:</h5></div>
 		</div>
 
-		<div class="row text-left">
+		<div class="row text-left mb-3">
 			<div class="col">
 				<div id="codeEditorHolder"></div>
 			</div>
@@ -138,14 +152,13 @@
 			</div>
 		</div>
 
-		<div class="row text text-center mt-5">
-			<div class="col text-left">
-				<h2 class="text-center">The Task</h2><br>
-				<p>You've been given an array in the text editor. Your task is to make a function that counts how many times each word occurs in that array. You may <b>not</b> edit that array and to submit your answer use the <code>Console.log()</code> command and the output will appear in the result section.</p>
-				<p class="text-center"><b>The desired output is:</b> <code>{cat:2,dog:1,cow:3}</code></p>
-			</div>
-		</div>
+		
 	</div>
+	<footer id="creds">
+		<h4>Thanks for visiting</h4>
+		<p>Thanks to Ducky and Gwaine for the quotes</p>
+		<p>Thanks to "All things web development" for the challenge</p>
+	</footer>
 
 	<script src="js/codemirror.js"></script>
 	<script src="js/javascript.js"></script>
