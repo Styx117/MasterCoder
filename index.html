@@ -11,14 +11,28 @@
 	<link rel="stylesheet" href="css/codemirror.css">
 	<link rel="stylesheet" href="css/material.css">
 	<style>
+		@font-face {
+			font-family: aquire;
+			src: url(fonts/Aquire.otf);
+		}
+
+		nav{
+			background-color: #21384e;
+		}
+
+		.nav-link{
+			font-family: montserrat;
+			font-weight: 500;
+		}
+
+		#myCarousel{
+			transition: 1s;
+		}
+
 		.parallax {
-			/* The image used */
 			background-image: url("https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimg4.wikia.nocookie.net%2F__cb20110630043338%2Fmarvel_dc%2Fimages%2Fe%2Fe4%2FGreenLanternScreen_Parallax.jpg&f=1&nofb=1");
+			min-height: 700px;
 
-			/* Set a specific height */
-			min-height: 500px; 
-
-			/* Create the parallax scrolling effect */
 			background-attachment: fixed;
 			background-position: center;
 			background-repeat: no-repeat;
@@ -56,7 +70,7 @@
 		.quoteBlock{
 			line-height: 1;
 			border-radius: 5px;
-			border:1px solid #cdcdcd;
+			/*border:1px solid #cdcdcd;*/
 			padding: 10px;
 		}
 		.quoteBlock p{
@@ -78,27 +92,28 @@
 			color: #fff;
 			text-align: center;
 		}
+
 	</style>
 </head>
 <body>
 	<div class="scriptHolder"></div>
 	
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<nav class="navbar navbar-expand-lg navbar-dark p-0">
 		<div class="container">
-			<a class="navbar-brand" href="#">Master &#60;/&#62; Coder</a>
+			<a class="navbar-brand" href="#" style="font-family: aquire; font-size:25px;">Master Coder</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">
 						<a class="nav-link" href="#about">About</a>
 					</li>
-					<li class="nav-item">
+					<li class="nav-item active">
 						<a class="nav-link" href="#creds">Credits</a>
 					</li>
-					<li class="nav-item">
+					<li class="nav-item active">
 						<a class="nav-link" href="#challenge">The Challenge</a>
 					</li>
 				</div>
@@ -106,28 +121,72 @@
 		</div>
 	</nav>
 	<div class="parallax text-center"><div class="layer"></div><div class="welcome"><h2>A little inside joke for you DC fans <h6>*nudge*</h6></h2></div></div>
-	<div class="container text-center">
+
+	<!-- <div class="container text-center pl-5 pr-5 pb-5 ">
 		<div class="row">
 			<div id="about" class="col">
 				<h1 class="mt-4 mb-4">What does 'Master Coder' mean?</h1>
 				<h4>Through <strike>barely any</strike> extensive research, I have deduced that it can mean different things to different people.</h4>
+
 				<div class="quoteBlock text-right mb-3"><p>I think that 'Master coder' has less to do with knowing the ins and outs of different languages, but being able to problem solve really well (i.e. researching a topic they're unfamiliar with, zeroing in on key aspects of a project when thinking about code architecture etc.)</p> - Gwaine</div>
 				<div class="quoteBlock text-right mb-3"><p>To me a master coder is somebody who has experience in programming and has the attitude of knowing how to create something while learning more.</p> - Ducky</div>
 				<div class="quoteBlock text-right mb-3"><p>I think a master coder is one who is not only proficient in programming but also problem solving in general.</p> - Styx</div>
 			</div>
 		</div>
-		<div class="row text-left">
-			<div id="challenge" class="col">
-				<h4>Let's look at the words 'Master' and 'Coder'...</h4>
-				<h6><u>Master (v.)</u></h6>
-				<p>`Maistren, "to get the better of, prevail against; reduce to subjugation," from master (n.) and also from Old French maistriier, Medieval Latin magistrare. Meaning <b>"acquire complete knowledge of</b>, overcome the difficulties of, learn so as to be able to apply or use" is from 1740s. Related: Mastered; mastering.`</p>
-				<h6><u>Code + er (coming from code) (n.)</u></h6>
-				<p>(There are quite a few definitions so I went with this one) - <b>"Any system or collection of rules and regulations"</b></p>
-				<h4>So...</h4>
-				<h6>Master + Coder = "One who has acquired complete knowledge of any system or collection of rules and regulations" (So...Someone that knows 100% of any programming language?)</h6>
-				<p>Since such a person doesn't exist, the next best definition is basically someone who's good at programming....Are you? Test your skills below (JS)</p>
+	</div> -->
+	<div class="text-center">
+		<h1 class="mt-4 mb-4">What does 'Master Coder' mean?</h1>
+		<h4>Through <strike>barely any</strike> extensive research, I have deduced that it can mean different things to different people...</h4>
+		<div id="myCarousel" class="carousel slide mt-5" data-ride="carousel" style="color:#fff;background-color:#7c0bec;width:100%">
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>
+			<div class="container" style="padding: 0px 150px 0px 150px;">
+				
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<div class="quoteBlock text-right mb-3"><p>I think that 'Master coder' has less to do with knowing the ins and outs of different languages, but being able to problem solve really well (i.e. researching a topic they're unfamiliar with, zeroing in on key aspects of a project when thinking about code architecture etc.)</p> - Gwaine</div>
+					</div>
+					<div class="carousel-item">
+						<div class="quoteBlock text-right mb-3"><p>To me a master coder is somebody who has experience in programming and has the attitude of knowing how to create something while learning more.</p> - Ducky</div>
+					</div>
+					<div class="carousel-item">
+						<div class="quoteBlock text-right mb-3"><p>I think a master coder is one who is not only proficient in programming but also problem solving in general.</p> - Styx</div>
+					</div>
+				</div>
+			</div>
+
+			<a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+	</div>
+
+	<div class="text-center p-5" style="background-color:#21384e; color:white;">
+		<div class="container">
+			<div class="row text-left">
+				<div id="challenge" class="col">
+					<h4 class="text-center">Let's look at the words 'Master' and 'Coder'...</h4>
+					<h6><u>Master (v.)</u></h6>
+					<p>`Maistren, "to get the better of, prevail against; reduce to subjugation," from master (n.) and also from Old French maistriier, Medieval Latin magistrare. Meaning <b>"acquire complete knowledge of</b>, overcome the difficulties of, learn so as to be able to apply or use" is from 1740s. Related: Mastered; mastering.`</p>
+					<h6><u>Code + er (coming from code) (n.)</u></h6>
+					<p>(There are quite a few definitions so I went with this one) - <b>"Any system or collection of rules and regulations"</b></p>
+					<h4>So...</h4>
+					<h6>Master + Coder = "One who has acquired complete knowledge of any system or collection of rules and regulations" (So...Someone that knows 100% of any programming language?)</h6>
+					<p>Since such a person doesn't exist, the next best definition is basically someone who's good at programming....Are you? Test your skills below (JS)</p>
+				</div>
 			</div>
 		</div>
+	</div>
+
+	<div class="container text-center">
 		<div class="row text text-center mt-2 mb-3">
 			<div class="col text-left">
 				<h2 class="text-center">The Task</h2><br>
@@ -138,7 +197,7 @@
 		</div>
 		<button class="stbtn btn btn-success btn-lg mb-3">Start</button>
 		<div class="codeStuff" style="display:none;">
-			
+
 			<div class="row text-right">
 				<div class="col">
 					<button class="btn btn-success btn-sm runCode">Run!</button>
@@ -156,9 +215,10 @@
 				</div>
 			</div>
 		</div>
-
-		
 	</div>
+
+	
+
 	<footer id="creds">
 		<h4>Thanks for visiting</h4>
 		<p>Thanks to Ducky and Gwaine for the quotes</p>
@@ -225,7 +285,31 @@
 			});
 		});
 
-		
+		$('#myCarousel').carousel({
+			interval: 3000
+		})
+
+		$('#myCarousel').bind('slide.bs.carousel', function (e) {
+			if ($(".carousel-item.active:contains('Gwaine')").length > 0){
+				$('#myCarousel').css({
+					"background-color":"#2e73b5",
+					"color":"#fff"
+				});
+			}
+			else if($(".carousel-item.active:contains('Styx')").length > 0){
+				$('#myCarousel').css({
+					"background-color":"#4d0a90",
+					"color":"#fff"
+				});
+			}
+			else{
+				$('#myCarousel').css({
+					"background-color":"#062c50",
+					"color":"#fff"
+				});
+			}
+		});
+
 	</script>
 </body>
 </html>
